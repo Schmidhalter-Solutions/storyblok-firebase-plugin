@@ -1,4 +1,5 @@
-# Firebase Storyblok Plugin
+# Storyblok Firebase Plugin
+
 
 A Storyblok field plugin that provides a category selector with infinite scroll functionality. This plugin allows content editors to select multiple categories from a Firebase collection and store them in Storyblok.
 
