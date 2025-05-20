@@ -1,5 +1,5 @@
 {
-  "name": "category-selector",
+  "name": "firebase-category-selector",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@storyblok/field-plugin": "1.6.0",
+    "firebase": "^11.7.3",
     "vue": "^3.2.47"
   },
   "devDependencies": {
