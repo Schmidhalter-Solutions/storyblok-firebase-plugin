@@ -98,16 +98,16 @@ watch(selectedDocuments, (newValue) => {
 }, { deep: true })
 
 // Initialize selectedDocuments from plugin content when loaded
-watch(() => plugin.type, (newType) => {
-  if (newType === 'loaded' && plugin.data && Array.isArray(plugin.data.content)) {
+watch([() => plugin.type, () => documents.value], ([newType, docs]) => {
+  if (newType === 'loaded' && plugin.data && Array.isArray(plugin.data.content) && docs.length > 0) {
     // Convert slugs back to IDs when initializing from Storyblok content
     const slugs = (plugin.data.content as string[]).filter(id => id !== null && typeof id === 'string')
     selectedDocuments.value = slugs.map(slug => {
-      const doc = documents.value.find(d => d.slug === slug)
+      const doc = docs.find(d => d.slug === slug)
       return doc?.id || slug
     })
   }
-})
+}, { immediate: true })
 
 onMounted(() => {
   loadDocuments()
